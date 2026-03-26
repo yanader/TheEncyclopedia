@@ -2,10 +2,7 @@ package FunctionalInterfaces;
 
 import FunctionalInterfaces.Model.Person;
 
-import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 public class FunctionalInterfaces {
     public static void main(String[] args) {
@@ -51,6 +48,13 @@ public class FunctionalInterfaces {
                 System.out.println(personFormatter.apply(people[i]));
             }
         }
+
+        // A Consumer that take a person and prints their details in the format "Name: Name | Age: xx"
+        Consumer<Person> personPrinter = person -> {
+            System.out.println("Name: " + person.getName() + " | Age: " + person.getAge());
+        };
+
+        personPrinter.accept(new Person("ste", 100));
 
     }
 }
