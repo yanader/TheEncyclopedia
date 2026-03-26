@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 public class FunctionalInterfaces {
     public static void main(String[] args) {
 
-        // A Function to take a name in the format "first last" (case insensitive) and return "Last, First"
+        // A Function to take a name in the format "first last" (case-insensitive) and return "Last, First"
         Function<String, String> nameFormatter = s -> {
             String[] parts = s.split(" ");
             return parts[1].substring(0, 1).toUpperCase() + parts[1].substring(1).toLowerCase() + ", " +
@@ -21,7 +21,7 @@ public class FunctionalInterfaces {
         // in the format "Item: Name | Price: £x.xx"
         BiFunction<String, Double, String> invoiceCreator = (s, d) -> {
             return "Item: " + s.substring(0,1).toUpperCase() + s.substring(1).toLowerCase() +
-                    " | Price: £" + Double.toString(d);
+                    " | Price: £" + d;
         };
 
         // A Predicate that takes a Person and checks whether they are 18 or over
@@ -42,12 +42,14 @@ public class FunctionalInterfaces {
             return "Name: " + name + " | Age: " + Integer.toString(age);
         };
 
-        Person[] people = {new Person("chris", 15),
+        Person[] people = {new Person("Chris", 15),
                            new Person("Andrea", 35),
                             new Person("Carol", 45)};
 
         for(int i = 0; i < people.length; i++) {
-
+            if  (ageIs30Checker.test(people[i])) {
+                System.out.println(personFormatter.apply(people[i]));
+            }
         }
 
     }

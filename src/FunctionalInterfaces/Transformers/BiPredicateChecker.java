@@ -3,7 +3,7 @@ package FunctionalInterfaces.Transformers;
 import java.util.function.BiPredicate;
 
 public class BiPredicateChecker<T, U> {
-    private BiPredicate<T, U> biPredicate;
+    private final BiPredicate<T, U> biPredicate;
 
     public BiPredicateChecker(BiPredicate<T, U> biPredicate) {
         this.biPredicate = biPredicate;
