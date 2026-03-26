@@ -59,5 +59,11 @@ public class FunctionalInterfaces {
         // A BiConsumer that takes a name and a person's age and prints a message
         BiConsumer<String, Integer> personDetails = (s, i) -> System.out.println("Hello " + s + ", you are " + i + " years old.");
 
+        // A Supplier that returns a default person (name=unknown, age=0) every time it is used.
+        Supplier<Person> personSupplier = () -> new Person("unknown", 0);
+
+        System.out.println(personSupplier.get().getName());
+        System.out.println(personSupplier.get().getAge());
+
     }
 }
