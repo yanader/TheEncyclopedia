@@ -56,5 +56,8 @@ public class FunctionalInterfaces {
 
         personPrinter.accept(new Person("ste", 100));
 
+        // A BiConsumer that takes a name and a person's age and prints a message
+        BiConsumer<String, Integer> personDetails = (s, i) -> System.out.println("Hello " + s + ", you are " + i + " years old.");
+
     }
 }
